@@ -146,16 +146,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 50,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      onTap:
-                                      () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
                                             builder: (context) =>
-                                                Question2Widget(),
-                                          ),
-                                        );
-                                      };
+                                                const Question2Widget()),
+                                      );
                                     },
                                     child: Text("Skip"),
                                     style: ElevatedButton.styleFrom(
