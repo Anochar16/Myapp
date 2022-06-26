@@ -1,4 +1,5 @@
 import 'package:app/question2.dart';
+import 'package:app/questions4.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-
             //พื้นหลัง
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -134,8 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ]),
 
 //-------------------------------Button-------------------------------------
+// --button
                     Row(
                       children: [
+                        // Skip
                         Container(
                           child: Actions(
                             actions: {},
@@ -150,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const Question2Widget()),
+                                                const Question4Widget()),
                                       );
                                     },
                                     child: Text("Skip"),
@@ -162,39 +164,37 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 )),
                           ),
-
-// Button ---> Skip
                         ),
-                        /*Container(
-                            margin: EdgeInsets.only(top: 40, left: 70),
-                            child: SizedBox(
-                              width: 100,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text("Skip"),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Color.fromARGB(255, 255, 255, 255),
-                                    onPrimary: Colors.black,
-                                    textStyle: TextStyle(fontSize: 20)),
-                              ),
-                            )),*/
 
                         //Button---> Next
 
                         Container(
-                            margin: EdgeInsets.only(top: 40, left: 10),
-                            child: SizedBox(
-                              width: 100,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text("Next"),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Colors.amber,
-                                    textStyle: TextStyle(fontSize: 20)),
-                              ),
-                            )),
+                          child: Actions(
+                            actions: {},
+                            child: Container(
+                                margin: EdgeInsets.only(top: 40, left: 10),
+                                child: SizedBox(
+                                  width: 100,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Question2Widget()),
+                                      );
+                                    },
+                                    child: Text("Next"),
+                                    style: ElevatedButton.styleFrom(
+                                        primary:
+                                            Color.fromARGB(255, 253, 214, 38),
+                                        onPrimary: Colors.black,
+                                        textStyle: TextStyle(fontSize: 20)),
+                                  ),
+                                )),
+                          ),
+                        ),
                       ],
                     )
 //---------------------------------------------------------------------------

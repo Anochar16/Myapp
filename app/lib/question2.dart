@@ -1,3 +1,6 @@
+import 'package:app/main.dart';
+import 'package:app/quesion3.dart';
+import 'package:app/questions4.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -55,6 +58,72 @@ class _Question2WidgetState extends State<Question2Widget> {
                                   color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 25,
                                 )),
+                            Row(
+                              children: [
+                                // Skip
+                                Container(
+                                  child: Actions(
+                                    actions: {},
+                                    child: Container(
+                                        margin:
+                                            EdgeInsets.only(top: 40, left: 70),
+                                        child: SizedBox(
+                                          width: 100,
+                                          height: 50,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const MyApp()),
+                                              );
+                                            },
+                                            child: Text("Back"),
+                                            style: ElevatedButton.styleFrom(
+                                                primary: Color.fromARGB(
+                                                    255, 255, 255, 255),
+                                                onPrimary: Colors.black,
+                                                textStyle:
+                                                    TextStyle(fontSize: 20)),
+                                          ),
+                                        )),
+                                  ),
+                                ),
+
+                                //Button---> Next
+
+                                Container(
+                                  child: Actions(
+                                    actions: {},
+                                    child: Container(
+                                        margin:
+                                            EdgeInsets.only(top: 40, left: 10),
+                                        child: SizedBox(
+                                          width: 100,
+                                          height: 50,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const Question3Widget()),
+                                              );
+                                            },
+                                            child: Text("Next"),
+                                            style: ElevatedButton.styleFrom(
+                                                primary: Color.fromARGB(
+                                                    255, 253, 214, 38),
+                                                onPrimary: Colors.black,
+                                                textStyle:
+                                                    TextStyle(fontSize: 20)),
+                                          ),
+                                        )),
+                                  ),
+                                ),
+                              ],
+                            )
                           ]))))
             ])));
   }
