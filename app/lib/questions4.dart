@@ -21,16 +21,29 @@ class _Question4WidgetState extends State<Question4Widget> {
         child: ListView(
           children: const <Widget>[
             ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
+              title: Text(
+                'Setting',
+                style: TextStyle(fontSize: 24),
+              ),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+              contentPadding: EdgeInsets.only(left: 70),
+              title: Text('Backup & Restore'),
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              contentPadding: EdgeInsets.only(top: 10, left: 15),
+              leading: Icon(Icons.person),
+              title: Text('Edit profile'),
+            ),
+            ListTile(
+              contentPadding: EdgeInsets.only(left: 15),
+              leading: Icon(Icons.coffee),
+              title: Text('Countdown Time'),
+            ),
+            ListTile(
+              contentPadding: EdgeInsets.only(left: 15),
+              leading: Icon(Icons.restore),
+              title: Text('Restart progress'),
             ),
           ],
         ),
