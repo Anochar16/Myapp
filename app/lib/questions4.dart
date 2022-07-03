@@ -1,4 +1,3 @@
-import 'package:app/question2.dart';
 import 'package:flutter/material.dart'; // TODO Implemen
 
 class Question4Widget extends StatefulWidget {
@@ -10,33 +9,52 @@ class Question4Widget extends StatefulWidget {
 
 class _Question4WidgetState extends State<Question4Widget> {
   get child => null;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-
-            //พื้นหลัง
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage("image/bg.jpg"),
-              fit: BoxFit.cover,
-            )),
-            child: Stack(children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                color: Color.fromARGB(150, 3, 4, 55),
-                child: Column(children: [
-                  Text("\n\nLet us know you better.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 30,
-                      )),
-                ]),
-              ),
-            ])));
+      appBar: AppBar(
+        title: Text("Traning"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: const <Widget>[
+            ListTile(
+              leading: Icon(Icons.message),
+              title: Text('Messages'),
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: Text("data"),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) => setState(
+          () => currentIndex = index,
+        ),
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.sports),
+              label: "Training",
+              backgroundColor: Color.fromARGB(255, 196, 195, 195)),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.library_books_outlined),
+              label: "History",
+              backgroundColor: Color.fromARGB(255, 196, 195, 195))
+        ],
+      ),
+    );
   }
 }
