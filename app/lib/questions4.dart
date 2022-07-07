@@ -1,5 +1,7 @@
-import 'dart:math';
+import 'dart:ffi';
 
+import 'package:app/history.dart';
+import 'package:app/training.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,72 +16,54 @@ class Question4Widget extends StatefulWidget {
 }
 
 class _Question4WidgetState extends State<Question4Widget> {
-  get child => null;
+  // -----------ตัวแปร
   int currentIndex = 0;
+  late String _title;
+
+  //-----------navigatbar screen
   final screens = [
-    Center(
-      child: Text("test"),
-    ),
-    Center(
-      child: Text("test2"),
-    ),
+    Trainging(),
+    History(),
     Center(
       child: Text("test3"),
     ),
     // EX Question4Widget();
   ];
-  List<int> data = [];
-  int _focusedIndex = 0;
-  void initState() {
-    super.initState();
 
-    for (int i = 0; i < 30; i++) {
-      data.add(Random().nextInt(100) + 1);
-    }
+  // case title appbar------------------------------------------
+  initState() {
+    _title = 'Training';
   }
 
-  void _onItemFocus(int index) {
+  void onTabTapped(int index) {
     setState(() {
-      _focusedIndex = index;
+      currentIndex = index;
+      switch (index) {
+        case 0:
+          {
+            _title = 'Training';
+          }
+          break;
+        case 1:
+          {
+            _title = 'History';
+          }
+          break;
+        case 2:
+          {
+            _title = 'Contact';
+          }
+      }
     });
-  }
-
-  Widget _buildItemDetail() {
-    if (data.length > _focusedIndex)
-      return Container(
-        height: 150,
-        child: Text("index $_focusedIndex: ${data[_focusedIndex]}"),
-      );
-
-    return Container(
-      height: 150,
-      child: Text("No Data"),
-    );
-  }
-
-  Widget _buildListItem(BuildContext context, int index) {
-    //horizontal
-    return Container(
-      width: 35,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Container(
-            height: data[index].toDouble() * 2,
-            width: 25,
-            color: Colors.lightBlueAccent,
-            child: Text("i:$index\n${data[index]}"),
-          )
-        ],
-      ),
-    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //App bar-----------------------------------------------------
       appBar: AppBar(
-        title: Text("Traning"),
+        title: Text(_title),
+        backgroundColor: Colors.black,
       ),
       drawer: Drawer(
         child: ListView(
@@ -110,18 +94,19 @@ class _Question4WidgetState extends State<Question4Widget> {
           ],
         ),
       ),
+
       body: screens[currentIndex],
+      //Navigat App
       bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
         currentIndex: currentIndex,
-        onTap: (index) => setState(
-          () => currentIndex = index,
-        ),
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.sports),
-              label: "Training",
-              backgroundColor: Color.fromARGB(255, 196, 195, 195)),
+            icon: Icon(Icons.sports),
+            label: "Training",
+            backgroundColor: Color.fromARGB(255, 196, 195, 195),
+          ),
           BottomNavigationBarItem(
               icon: Icon(Icons.library_books_outlined),
               label: "History",
